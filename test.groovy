@@ -1,4 +1,11 @@
 pipeline {
+    
+    println "Hello world"
+    def f = new File('file.txt')
+    text = f.text
+    f.withWriter { w ->
+     w << text.replaceAll("var1", ${var1}).replaceAll("var2",${var2}).replaceAll("var3",${var3})
+    }
 
     parameters {
         string (name: 'var1',       defaultValue: 'node1',                               description: 'node 1')
@@ -13,15 +20,10 @@ pipeline {
    stage('Git Clone') { 
    steps {
       git 'https://github.com/bem92/pipeline_jenkins_test.git'
+   }      
    }
-   }     
+       
    stage('Build Docker Maven Image') {
-    println "Hello world"
-    def f = new File('file.txt')
-    text = f.text
-    f.withWriter { w ->
-     w << text.replaceAll("var1", ${var1}).replaceAll("var2",${var2}).replaceAll("var3",${var3})
-    }
    steps {
       sh "cat file.txt"
    }
