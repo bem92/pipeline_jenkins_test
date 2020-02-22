@@ -34,7 +34,7 @@ pipeline {
       stage('groovy') {
    steps {
      script {
-      def f = new File("$WORKSPACE"'/file.txt')
+      def f = new File("$WORKSPACE file.txt")
       text = f.text
       f.withWriter { w ->
         w << text.replaceAll("var1", "ok").replaceAll("var2","okok").replaceAll("var3","okokok").replaceAll(" ","+")
