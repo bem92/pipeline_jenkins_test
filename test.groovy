@@ -1,8 +1,6 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    }
-
     parameters {
         string (name: 'var1',       defaultValue: 'node1',                               description: 'node 1')
         string (name: 'var2',       defaultValue: 'node2',                               description: 'node 2')
