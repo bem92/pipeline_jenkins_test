@@ -1,5 +1,12 @@
 #!/usr/bin/env groovy
 
+def f = new File('file.txt')
+text = f.text
+f.withWriter { w ->
+  w << text.replaceAll("var1", "ok").replaceAll("var2","okok").replaceAll("var3","okokok").replaceAll(" ","+")
+}
+
+
 pipeline {
     parameters {
         string (name: 'var1',       defaultValue: 'node1',                               description: 'node 1')
@@ -7,8 +14,7 @@ pipeline {
         string (name: 'var3',       defaultValue: 'node3',                               description: 'node 3')
     }
     
-   def code
-
+    
    agent { node { label 'master' } }
    stages {
 
@@ -24,12 +30,13 @@ pipeline {
        bat "type file.txt"
    }
    }
-      stage('Load') {
+   
+   /*stage('Load') {
    code = load 'example.groovy'
   }
 
   stage('Execute') {
   code.example1()
-  }
+  }*/
 }
 }
