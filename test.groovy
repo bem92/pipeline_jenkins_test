@@ -30,13 +30,25 @@ pipeline {
        bat "type file.txt"
    }
    }
+     
+      stage('groovy') {
+   steps {
+     script {
+      def f = new File('file.txt')
+      text = f.text
+      f.withWriter { w ->
+        w << text.replaceAll("var1", "ok").replaceAll("var2","okok").replaceAll("var3","okokok").replaceAll(" ","+")
+      }
+     }
+   }
+   }
    
-   stage('Load') {
+   /*stage('Load') {
    code = load 'example.groovy'
   }
 
   stage('Execute') {
   code.example1()
-  }
+  }*/
 }
 }
