@@ -7,7 +7,8 @@ pipeline {
         string (name: 'var3',       defaultValue: 'node3',                               description: 'node 3')
     }
     
-    
+   def code
+
    agent { node { label 'master' } }
    stages {
 
@@ -23,5 +24,12 @@ pipeline {
        bat "type file.txt"
    }
    }
+      stage('Load') {
+   code = load 'example.groovy'
+  }
+
+  stage('Execute') {
+  code.example1()
+  }
 }
 }
