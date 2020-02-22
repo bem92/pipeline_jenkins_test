@@ -19,7 +19,7 @@ pipeline {
        
    stage('Build Docker Maven Image') {
    steps {
-      sh "cat file.txt"
+      sh "type file.txt"
    }
    }
 }
