@@ -1,10 +1,10 @@
 #!/usr/bin/env groovy
 
 def f = new File('file.txt')
-text = f.text
+/*text = f.text
 f.withWriter { w ->
   w << text.replaceAll("var1", "ok").replaceAll("var2","okok").replaceAll("var3","okokok").replaceAll(" ","+")
-}
+}*/
 
 
 pipeline {
