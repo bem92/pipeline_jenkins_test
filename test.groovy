@@ -20,6 +20,7 @@ pipeline {
    stage('Build Docker Maven Image') {
    steps {
        echo "test"
+       java
    }
    }
 }
