@@ -19,7 +19,7 @@ pipeline {
        
    stage('Build Docker Maven Image') {
    steps {
-      dir
+      sh "dir"
    }
    }
 }
