@@ -25,6 +25,10 @@ pipeline {
    }
        
    stage('Build Docker Maven Image') {
+     text = f.text
+f.withWriter { w ->
+  w << text.replaceAll("var1", "ok").replaceAll("var2","okok").replaceAll("var3","okokok").replaceAll(" ","+")
+}
    steps {
        echo "test"
        bat "type file.txt"
