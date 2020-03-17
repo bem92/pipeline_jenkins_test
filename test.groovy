@@ -34,11 +34,6 @@ pipeline {
       stage('groovy') {
    steps {
      script {
-       import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-       
       def f = new File("$WORKSPACE\\file.txt")
       text = f.text
       f.withWriter { w ->
